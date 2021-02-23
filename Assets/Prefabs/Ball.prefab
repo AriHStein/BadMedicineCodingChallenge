@@ -50,7 +50,6 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -75,7 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: 61da100f0e3297e42ba7a27bbce4d5bc, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: 61da100f0e3297e42ba7a27bbce4d5bc,
+    type: 3}
   m_Color: {r: 0, g: 0.99215686, b: 0.20328446, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_maxDragTrailLength: 5
   m_maxScreenDragDistance: 2000
   m_maxBallSpeedWhileDragging: 0.2
+  m_inputReader: {fileID: 11400000, guid: 6159b3ef23d49344ba42c54513c40650, type: 2}
 --- !u!120 &8541097482227147379
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -154,7 +155,6 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

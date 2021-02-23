@@ -11,6 +11,8 @@ public class Flicker : MonoBehaviour
     [SerializeField] float m_maxScreenDragDistance = 20f;
     [SerializeField] float m_maxBallSpeedWhileDragging = 0.1f;
 
+    //[SerializeField] InputReader m_inputReader;
+
     bool m_dragging = false;
     Vector2 m_dragStartPosition;
 
@@ -30,22 +32,36 @@ public class Flicker : MonoBehaviour
         m_lineRenderer.SetPositions(new Vector3[2] { Vector3.zero, Vector3.zero });
     }
 
+    //private void OnEnable()
+    //{
+    //    m_inputReader.DragStart += StartDrag;
+    //    m_inputReader.Drag += UpdateDrag;
+    //    m_inputReader.DragRelease += EndDrag;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    m_inputReader.DragStart -= StartDrag;
+    //    m_inputReader.Drag -= UpdateDrag;
+    //    m_inputReader.DragRelease -= EndDrag;
+    //}
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             StartDrag();
         }
         else
-        if(m_dragging)
+        if (m_dragging)
         {
-            
+
             UpdateDrag();
 
             // I used !GetMouseButton instead of GetMouseButtonUp just incase the mouseUp event gets missed
             // For example if the mouse button is released while over a UI element.
-            if(!Input.GetMouseButton(0))
+            if (!Input.GetMouseButton(0))
             {
                 EndDrag();
             }
@@ -87,6 +103,7 @@ public class Flicker : MonoBehaviour
     {
         // I played with a few different easing functions to see how it changed the feel.
         // Based on formulas here: https://easings.net/
+        // This could probably use more tuning, but having more fine-tuned control on the outer edge of the drag range without a dead-spot in the middle felt best to me.
 
         //return t < 0.5 ? 4 * t * t * t : 1 - Mathf.Pow(-2 * t + 2, 3) / 2; // EaseInOut
         //return t * t * t; // Ease In
